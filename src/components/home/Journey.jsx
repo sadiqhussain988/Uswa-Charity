@@ -3,28 +3,67 @@ import SectionHeading from "../common/SectionHeading";
 
 function Journey() {
   return (
-    <section className="section-pad">
+    <section className="py-20 bg-gradient-to-b from-[#F8FCF8] to-[#EEF8F1]">
       <div className="container-page">
+
+        {/* Section Heading */}
         <SectionHeading
           eyebrow="Our Journey"
-          title="From grassroots beginnings to broader community impact."
-          text="Guided by organizational profiles spanning 2013–2019 and 2019–2021, USWA continues to grow its service footprint."
+          title="From Grassroots Beginnings to Community Impact"
+          text="Guided by our vision and commitment since 2013, USWA has continued expanding its services and creating meaningful change in communities."
         />
 
-        <div className="relative space-y-0 border-l border-line pl-8">
-          {timeline.map((item) => (
-            <article key={item.period} className="relative pb-12 last:pb-0">
-              <span className="absolute -left-[2.4rem] top-1 flex h-5 w-5 items-center justify-center rounded-full bg-mint ring-4 ring-fog">
-                <span className="h-2.5 w-2.5 rounded-full bg-moss" />
-              </span>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-moss">
+        {/* Journey Cards */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {timeline.map((item, index) => (
+            <div
+              key={item.period}
+              className="group relative bg-white rounded-3xl p-8 border border-gray-200 shadow-md hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 overflow-hidden"
+            >
+              {/* Top Gradient */}
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-600 to-emerald-400"></div>
+
+              {/* Year Circle */}
+              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold text-lg shadow-md group-hover:bg-green-700 group-hover:text-white transition duration-300">
+                {index + 1}
+              </div>
+
+              {/* Period */}
+              <span className="inline-block mt-6 px-4 py-2 rounded-full bg-green-50 text-green-700 text-sm font-semibold">
                 {item.period}
+              </span>
+
+              {/* Title */}
+              <h3 className="mt-5 text-2xl font-bold text-gray-900 group-hover:text-green-700 transition duration-300">
+                {item.title}
+              </h3>
+
+              {/* Description */}
+              <p className="mt-4 text-gray-600 leading-7">
+                {item.text}
               </p>
-              <h3 className="mt-2 font-display text-2xl text-ink">{item.title}</h3>
-              <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink/70">{item.text}</p>
-            </article>
+
+              {/* Bottom Line */}
+              <div className="mt-8 flex items-center justify-between">
+                <span className="text-green-700 font-semibold">
+                  Our Progress
+                </span>
+
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center group-hover:bg-green-700 transition duration-300">
+                  <span className="text-green-700 group-hover:text-white transition duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </div>
+              </div>
+
+              {/* Decorative Background */}
+              <div className="absolute -right-12 -bottom-12 w-36 h-36 rounded-full bg-green-100/30 group-hover:scale-125 transition-transform duration-700"></div>
+            </div>
           ))}
+
         </div>
+
       </div>
     </section>
   );

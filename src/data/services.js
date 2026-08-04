@@ -2,6 +2,7 @@ export const services = [
   {
     id: "health",
     title: "Health",
+    image: "health.jpg",
     summary:
       "Community health support focused on prevention, mother & child care, and accessible wellbeing services.",
     details:
@@ -10,6 +11,7 @@ export const services = [
   {
     id: "education",
     title: "Education",
+    image: "education.jpg",
     summary:
       "Learning support and capacity building that help children and adults unlock better opportunities.",
     details:
@@ -18,6 +20,7 @@ export const services = [
   {
     id: "survey",
     title: "Survey",
+    image: "survey.jpg",
     summary:
       "Field surveys and needs assessments that guide evidence-based community programs.",
     details:
@@ -26,6 +29,7 @@ export const services = [
   {
     id: "workshops",
     title: "Workshops",
+    image: "workshops.jpg",
     summary:
       "Practical workshops that build skills, confidence, and community leadership.",
     details:
@@ -34,6 +38,7 @@ export const services = [
   {
     id: "consultancy",
     title: "Consultancy",
+    image: "consultancy.jpg",
     summary:
       "Advisory support for community projects, institutions, and development partners.",
     details:
@@ -42,6 +47,7 @@ export const services = [
   {
     id: "awareness",
     title: "Awareness Sessions",
+    image: "awareness.jpg",
     summary:
       "Public sessions that inform communities on health, rights, education, and social issues.",
     details:
@@ -50,6 +56,7 @@ export const services = [
   {
     id: "donations",
     title: "Donations",
+    image: "donations.jpg",
     summary:
       "Transparent donation drives that channel support to families and community needs.",
     details:
@@ -58,6 +65,7 @@ export const services = [
   {
     id: "blood",
     title: "Blood Collection",
+    image: "blood.jpg",
     summary:
       "Blood donation campaigns that connect donors with urgent life-saving needs.",
     details:
