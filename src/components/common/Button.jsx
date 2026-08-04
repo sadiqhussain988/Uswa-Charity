@@ -19,7 +19,7 @@ function Button({
   type = "button",
   onClick,
 }) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold tracking-wide transition duration-300 ${variants[variant]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-md px-5 py-2 text-sm font-semibold tracking-wide transition duration-300 ${variants[variant]} ${className}`;
 
   if (to) {
     return (
