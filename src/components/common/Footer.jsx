@@ -1,68 +1,123 @@
 import { Link } from "react-router-dom";
 import { navLinks, site } from "../../data/site";
 import { services } from "../../data/services";
+import Button from "./Button";
 
 function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-ink text-cream">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(61,139,110,0.18),transparent_40%),radial-gradient(circle_at_90%_80%,rgba(199,146,42,0.12),transparent_35%)]" />
-      <div className="container-page relative grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="lg:col-span-1">
-          <p className="font-display text-3xl tracking-wide">{site.name}</p>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-mint/80">
-            {site.tagline}
-          </p>
-        </div>
+    <footer className="bg-forest text-cream">
+      <div className="container-page py-14 sm:py-16" data-aos="fade-up">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-4">
+            <Link to="/" className="group inline-flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber font-display text-lg font-bold text-ink transition-transform duration-200 group-hover:scale-105">
+                U
+              </span>
+              <span className="leading-tight">
+                <span className="block font-display text-xl tracking-wide text-cream">
+                  {site.name}
+                </span>
+                <span className="block text-[11px] uppercase tracking-[0.18em] text-mint/80">
+                  Community Welfare
+                </span>
+              </span>
+            </Link>
 
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber">Explore</p>
-          <ul className="mt-4 space-y-2">
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <Link to={link.path} className="text-sm text-mint/85 transition hover:text-cream">
-                  {link.label}
-                </Link>
+            <p className="text-hero-body mt-5 max-w-sm text-mint/80">
+              {site.tagline}
+            </p>
+
+            <Button to="/donate" className="mt-6">
+              Support Us
+            </Button>
+          </div>
+
+          <div className="lg:col-span-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber">
+              Explore
+            </p>
+            <ul className="mt-5 space-y-3">
+              {navLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-cream/85 transition-colors duration-200 hover:text-amber"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber">
+              Key Programs
+            </p>
+            <ul className="mt-5 space-y-3">
+              {services.slice(0, 5).map((service) => (
+                <li key={service.id}>
+                  <Link
+                    to="/services"
+                    className="text-sm text-cream/85 transition-colors duration-200 hover:text-amber"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber">
+              Get in Touch
+            </p>
+            <ul className="mt-5 space-y-4 text-sm text-cream/85">
+              <li>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-mint/70">
+                  Address
+                </p>
+                <p className="mt-1 leading-relaxed">{site.address}</p>
               </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber">Programs</p>
-          <ul className="mt-4 space-y-2">
-            {services.slice(0, 5).map((service) => (
-              <li key={service.id}>
-                <Link
-                  to="/services"
-                  className="text-sm text-mint/85 transition hover:text-cream"
+              <li>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-mint/70">
+                  Email
+                </p>
+                <a
+                  href={`mailto:${site.email}`}
+                  className="mt-1 inline-block transition-colors duration-200 hover:text-amber"
                 >
-                  {service.title}
-                </Link>
+                  {site.email}
+                </a>
               </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber">Contact</p>
-          <ul className="mt-4 space-y-3 text-sm text-mint/85">
-            <li>{site.address}</li>
-            <li>
-              <a href={`mailto:${site.email}`} className="hover:text-cream">
-                {site.email}
-              </a>
-            </li>
-            <li>
-              <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-cream">
-                {site.phone}
-              </a>
-            </li>
-          </ul>
+              <li>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-mint/70">
+                  Phone
+                </p>
+                <a
+                  href={`tel:${site.phone.replace(/\s/g, "")}`}
+                  className="mt-1 inline-block transition-colors duration-200 hover:text-amber"
+                >
+                  {site.phone}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div className="container-page relative border-t border-white/10 py-6 text-sm text-mint/60">
-        <p>© {new Date().getFullYear()} {site.fullName}. All rights reserved.</p>
+      <div className="border-t border-white/10">
+        <div className="container-page flex flex-col items-center justify-between gap-3 py-5 text-xs text-mint/70 sm:flex-row">
+          <p>
+            © {new Date().getFullYear()} {site.fullName}. All rights reserved.
+          </p>
+          <Link
+            to="/contact"
+            className="transition-colors duration-200 hover:text-amber"
+          >
+            Contact USWA
+          </Link>
+        </div>
       </div>
     </footer>
   );
