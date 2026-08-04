@@ -92,7 +92,7 @@ function Navbar() {
     >
       <div
         className={`container-page relative flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20"
+          scrolled ? "h-16 sm:h-16" : "h-16 sm:h-16"
         }`}
       >
         <Link
@@ -246,7 +246,12 @@ function Navbar() {
         </nav>
 
         <div className="z-10 hidden lg:block">
-          <Button to="/donate">Support Us</Button>
+          <Button
+            to="/donate"
+            className="min-w-[132px] rounded-full !px-5 !py-2 hover:-translate-y-0.5"
+          >
+            Support Us
+          </Button>
         </div>
 
         <button
@@ -375,7 +380,7 @@ function Navbar() {
 
             <Button
               to="/donate"
-              className="mt-3 w-full justify-center"
+              className="mt-3 w-full justify-center rounded-full !px-5 !py-2"
               onClick={() => setOpen(false)}
             >
               Support Us

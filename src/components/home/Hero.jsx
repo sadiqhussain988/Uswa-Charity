@@ -119,10 +119,17 @@ function Hero() {
                         : "opacity-0 translate-y-4"
                     }`}
                   >
-                    <Button to={slide.primary.to}>
+                    <Button
+                      to={slide.primary.to}
+                      className="min-w-[150px] rounded-full !px-5 !py-2 hover:-translate-y-0.5"
+                    >
                       {slide.primary.label}
                     </Button>
-                    <Button to={slide.secondary.to} variant="secondary">
+                    <Button
+                      to={slide.secondary.to}
+                      variant="secondary"
+                      className="min-w-[150px] rounded-full !px-5 !py-2 hover:-translate-y-0.5 hover:bg-white/20"
+                    >
                       {slide.secondary.label}
                     </Button>
                   </div>
