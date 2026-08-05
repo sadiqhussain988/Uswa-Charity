@@ -1,12 +1,12 @@
 import React from "react";
 
-function PdfViewer({ src, title, showDownload = true }) {
+function PdfViewer({ src, title, showDownload = true, className = "" }) {
   return (
-    <div className="relative rounded-lg overflow-hidden border border-white/5 bg-black/40">
+    <div className={`relative h-full overflow-hidden bg-black ${className}`}>
       <iframe
         src={src}
         title={title}
-        className="w-full h-96"
+        className="w-full h-full"
         style={{ border: "none" }}
       />
 

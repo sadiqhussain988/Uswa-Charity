@@ -5,55 +5,132 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>PDF Viewer</title>
     <style>
-      html,body { height:100%; margin:0; background:#0b0b0b; color:#fff; font-family:Inter, system-ui, Arial; }
-      .frame-wrap{ position:fixed; inset:0; display:flex; align-items:flex-start; justify-content:center; padding:24px; box-sizing:border-box }
-      .viewer{ width:100%; max-width:1100px; height:calc(100% - 48px); background:#000; border-radius:8px; overflow:hidden; position:relative }
-      iframe{ width:100%; height:100%; border:0 }
-      .topbar{ position:absolute; right:12px; top:12px; display:flex; gap:8px; align-items:center }
-      .btn{ background:#ffda6b; color:#031018; padding:8px 12px; border-radius:999px; text-decoration:none; font-weight:600 }
-      .close{ background:rgba(255,255,255,0.06); color:#fff; padding:8px 10px; border-radius:8px; text-decoration:none }
-      .title{ position:absolute; left:18px; top:14px; font-size:14px; opacity:0.9 }
-      @media (max-width:640px){ .viewer{ height:calc(100% - 24px); } }
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #050609;
+        color: #fff;
+        font-family: Inter, system-ui, Arial, sans-serif;
+        overflow: hidden;
+      }
+
+      .viewer {
+        position: fixed;
+        inset: 0;
+        background: #050609;
+        overflow: hidden;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .topbar {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 20;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .btn {
+        background: #ffda6b;
+        color: #031018;
+        padding: 10px 14px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+      }
+
+      .close {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .title {
+        position: fixed;
+        top: 18px;
+        left: 16px;
+        z-index: 20;
+        font-size: 14px;
+        opacity: 0.88;
+        max-width: calc(100% - 220px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      @media (max-width: 640px) {
+        .topbar, .title {
+          top: 12px;
+          right: 12px;
+          left: 12px;
+        }
+
+        .btn, .close {
+          padding: 9px 12px;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="frame-wrap">
-      <div class="viewer" id="viewer">
-        <div class="title" id="title">PDF</div>
-        <div class="topbar">
-          <a id="downloadBtn" class="btn" href="#" download>Download</a>
-          <a id="closeBtn" class="close" href="#">Close</a>
-        </div>
-        <iframe id="pdfFrame" src="about:blank"></iframe>
+    <div class="viewer">
+      <div class="title" id="title">PDF</div>
+      <div class="topbar">
+        <a id="downloadBtn" class="btn" href="#" download>Download</a>
+        <a id="closeBtn" class="close" href="#">Close</a>
       </div>
+      <iframe id="pdfFrame" src="about:blank"></iframe>
     </div>
 
     <script>
-      function qs(key){
-        const s = new URLSearchParams(location.search);
-        return s.get(key);
+      function qs(key) {
+        return new URLSearchParams(location.search).get(key);
+      }
+
+      function safeDecode(value) {
+        try {
+          return decodeURIComponent(value);
+        } catch (error) {
+          return value;
+        }
       }
 
       const src = qs('src') || '';
       const title = qs('title') || 'PDF Document';
-
       const pdf = document.getElementById('pdfFrame');
-      const dl = document.getElementById('downloadBtn');
-      const ttl = document.getElementById('title');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const titleLabel = document.getElementById('title');
       const closeBtn = document.getElementById('closeBtn');
 
-      function safeDecode(v){ try { return decodeURIComponent(v); } catch(e){ return v; } }
-
-      if(!src){ ttl.textContent = 'No PDF specified'; pdf.src = 'about:blank'; dl.style.display='none'; }
-      else{
-        const decoded = safeDecode(src);
-        pdf.src = decoded;
-        dl.href = decoded;
-        dl.setAttribute('download','');
-        ttl.textContent = safeDecode(title);
+      if (!src) {
+        titleLabel.textContent = 'No PDF specified';
+        pdf.src = 'about:blank';
+        downloadBtn.style.display = 'none';
+      } else {
+        const decodedSrc = safeDecode(src);
+        const decodedTitle = safeDecode(title);
+        pdf.src = decodedSrc;
+        downloadBtn.href = decodedSrc;
+        downloadBtn.setAttribute('download', '');
+        titleLabel.textContent = decodedTitle;
+        document.title = `${decodedTitle} — PDF Viewer`;
       }
 
-      closeBtn.addEventListener('click', (e)=>{ e.preventDefault(); window.close(); });
+      closeBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        window.close();
+      });
     </script>
   </body>
 </html>
