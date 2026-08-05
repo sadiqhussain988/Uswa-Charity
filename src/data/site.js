@@ -18,6 +18,7 @@ export const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Services", path: "/services" },
+  { label: "Books", path: "/books" },
   { label: "Donate", path: "/donate" },
   { label: "Contact", path: "/contact" },
 ];
