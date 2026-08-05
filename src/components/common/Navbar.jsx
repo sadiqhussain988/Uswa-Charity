@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { navLinks, site } from "../../data/site";
 import { services } from "../../data/services";
 import Button from "./Button";
-
+import uswa from "../../assets/uswa.png";
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -84,16 +84,14 @@ function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        solid
-          ? "border-b border-white/10 bg-forest/95 shadow-lg backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${solid
+        ? "border-b border-white/10 bg-forest/95 shadow-lg backdrop-blur-md"
+        : "border-b border-transparent bg-transparent"
+        }`}
     >
       <div
-        className={`container-page relative flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "h-16 sm:h-16" : "h-16 sm:h-16"
-        }`}
+        className={`container-page relative flex items-center justify-between transition-all duration-300 ${scrolled ? "h-16 sm:h-16" : "h-16 sm:h-16"
+          }`}
       >
         <Link
           to="/"
@@ -101,20 +99,24 @@ function Navbar() {
           onClick={() => setOpen(false)}
         >
           <span
-            className={`flex items-center justify-center rounded-full bg-amber font-display font-bold text-ink transition-all duration-300 group-hover:scale-105 ${
-              scrolled ? "h-9 w-9 text-base" : "h-10 w-10 text-lg"
-            }`}
+            className={`flex items-center justify-center overflow-hidden rounded-full bg-white shadow-md transition-all duration-300 group-hover:scale-105 ${scrolled ? "h-11 w-11" : "h-12 w-12"
+              }`}
           >
-            U
+            <img
+              src={uswa}
+              alt="Uswa Charity logo"
+              className="h-9 w-9 object-contain p-0.5"
+            />
           </span>
+
           <span className="leading-tight">
             <span className="block font-display text-lg tracking-wide text-cream sm:text-xl">
               {site.name}
             </span>
+
             <span
-              className={`hidden text-[11px] uppercase tracking-[0.18em] text-mint/80 transition-all duration-300 sm:block ${
-                scrolled ? "h-0 overflow-hidden opacity-0" : "opacity-100"
-              }`}
+              className={`hidden text-[11px] uppercase tracking-[0.18em] text-mint/80 transition-all duration-300 sm:block ${scrolled ? "h-0 overflow-hidden opacity-0" : "opacity-100"
+                }`}
             >
               Community Welfare
             </span>
@@ -141,17 +143,15 @@ function Navbar() {
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
                       onClick={() => setServicesOpen((prev) => !prev)}
-                      className={`group relative inline-flex items-center gap-1.5 py-1 text-sm font-medium tracking-wide transition-colors duration-200 ${
-                        isServicesActive || servicesOpen
-                          ? "text-amber"
-                          : "text-cream/85 hover:text-cream"
-                      }`}
+                      className={`group relative inline-flex items-center gap-1.5 py-1 text-sm font-medium tracking-wide transition-colors duration-200 ${isServicesActive || servicesOpen
+                        ? "text-amber"
+                        : "text-cream/85 hover:text-cream"
+                        }`}
                     >
                       <span>Services</span>
                       <svg
-                        className={`h-3.5 w-3.5 transition-transform duration-300 ${
-                          servicesOpen ? "rotate-180" : ""
-                        }`}
+                        className={`h-3.5 w-3.5 transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""
+                          }`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -161,20 +161,18 @@ function Navbar() {
                       </svg>
                       <span
                         aria-hidden="true"
-                        className={`absolute -bottom-1 left-0 h-[2px] w-full origin-left bg-amber transition-transform duration-300 ease-out ${
-                          isServicesActive || servicesOpen
-                            ? "scale-x-100"
-                            : "scale-x-0 group-hover:scale-x-100"
-                        }`}
+                        className={`absolute -bottom-1 left-0 h-[2px] w-full origin-left bg-amber transition-transform duration-300 ease-out ${isServicesActive || servicesOpen
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
+                          }`}
                       />
                     </button>
 
                     <div
-                      className={`absolute left-1/2 top-full z-50 w-[min(92vw,34rem)] -translate-x-1/2 pt-3 transition-all duration-200 ${
-                        servicesOpen
-                          ? "visible translate-y-0 opacity-100"
-                          : "invisible -translate-y-1 opacity-0 pointer-events-none"
-                      }`}
+                      className={`absolute left-1/2 top-full z-50 w-[min(92vw,34rem)] -translate-x-1/2 pt-3 transition-all duration-200 ${servicesOpen
+                        ? "visible translate-y-0 opacity-100"
+                        : "invisible -translate-y-1 opacity-0 pointer-events-none"
+                        }`}
                     >
                       <div className="overflow-hidden rounded-2xl border border-white/10 bg-forest shadow-2xl shadow-black/30 ring-1 ring-white/10">
                         <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
@@ -223,8 +221,7 @@ function Navbar() {
                   key={link.path}
                   to={link.path}
                   className={({ isActive }) =>
-                    `group relative inline-flex items-center justify-center py-1 text-sm font-medium tracking-wide transition-colors duration-200 ${
-                      isActive ? "text-amber" : "text-cream/85 hover:text-cream"
+                    `group relative inline-flex items-center justify-center py-1 text-sm font-medium tracking-wide transition-colors duration-200 ${isActive ? "text-amber" : "text-cream/85 hover:text-cream"
                     }`
                   }
                 >
@@ -233,9 +230,8 @@ function Navbar() {
                       <span>{link.label}</span>
                       <span
                         aria-hidden="true"
-                        className={`absolute -bottom-1 left-0 h-[2px] w-full origin-left bg-amber transition-transform duration-300 ease-out ${
-                          isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                        }`}
+                        className={`absolute -bottom-1 left-0 h-[2px] w-full origin-left bg-amber transition-transform duration-300 ease-out ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                          }`}
                       />
                     </>
                   )}
@@ -264,19 +260,16 @@ function Navbar() {
         >
           <div className="relative flex flex-col items-center justify-center gap-1.5" aria-hidden="true">
             <span
-              className={`block h-0.5 w-5 bg-cream transition-transform duration-300 ${
-                open ? "translate-y-2 rotate-45" : ""
-              }`}
+              className={`block h-0.5 w-5 bg-cream transition-transform duration-300 ${open ? "translate-y-2 rotate-45" : ""
+                }`}
             />
             <span
-              className={`block h-0.5 w-5 bg-cream transition-opacity duration-300 ${
-                open ? "opacity-0" : "opacity-100"
-              }`}
+              className={`block h-0.5 w-5 bg-cream transition-opacity duration-300 ${open ? "opacity-0" : "opacity-100"
+                }`}
             />
             <span
-              className={`block h-0.5 w-5 bg-cream transition-transform duration-300 ${
-                open ? "-translate-y-2 -rotate-45" : ""
-              }`}
+              className={`block h-0.5 w-5 bg-cream transition-transform duration-300 ${open ? "-translate-y-2 -rotate-45" : ""
+                }`}
             />
           </div>
         </button>
@@ -291,9 +284,8 @@ function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`grid transition-all duration-300 ease-in-out lg:hidden ${
-          open ? "grid-rows-[1fr] opacity-100" : "pointer-events-none grid-rows-[0fr] opacity-0"
-        }`}
+        className={`grid transition-all duration-300 ease-in-out lg:hidden ${open ? "grid-rows-[1fr] opacity-100" : "pointer-events-none grid-rows-[0fr] opacity-0"
+          }`}
       >
         <div className="max-h-[80vh] overflow-y-auto border-t border-white/10 bg-forest/98 backdrop-blur-lg">
           <nav
@@ -307,17 +299,15 @@ function Navbar() {
                     <button
                       type="button"
                       onClick={() => setMobileServicesOpen((prev) => !prev)}
-                      className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium transition ${
-                        isServicesActive || mobileServicesOpen
-                          ? "bg-white/8 text-amber"
-                          : "text-cream hover:bg-white/5"
-                      }`}
+                      className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium transition ${isServicesActive || mobileServicesOpen
+                        ? "bg-white/8 text-amber"
+                        : "text-cream hover:bg-white/5"
+                        }`}
                     >
                       <span>Services</span>
                       <svg
-                        className={`h-4 w-4 transition-transform duration-300 ${
-                          mobileServicesOpen ? "rotate-180" : ""
-                        }`}
+                        className={`h-4 w-4 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""
+                          }`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -328,11 +318,10 @@ function Navbar() {
                     </button>
 
                     <div
-                      className={`grid transition-all duration-300 ${
-                        mobileServicesOpen
-                          ? "grid-rows-[1fr] opacity-100"
-                          : "grid-rows-[0fr] opacity-0"
-                      }`}
+                      className={`grid transition-all duration-300 ${mobileServicesOpen
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                        }`}
                     >
                       <div className="overflow-hidden">
                         <div className="space-y-1 px-2 pb-2 pt-1">
@@ -366,10 +355,9 @@ function Navbar() {
                   to={link.path}
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
-                    `rounded-xl px-4 py-3 text-base font-medium transition ${
-                      isActive
-                        ? "bg-white/8 font-semibold text-amber"
-                        : "text-cream hover:bg-white/5"
+                    `rounded-xl px-4 py-3 text-base font-medium transition ${isActive
+                      ? "bg-white/8 font-semibold text-amber"
+                      : "text-cream hover:bg-white/5"
                     }`
                   }
                 >
