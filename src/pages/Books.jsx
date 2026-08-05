@@ -1,4 +1,6 @@
 import PageBanner from "../components/common/PageBanner";
+import PdfViewer from "../components/common/PdfViewer";
+import { useState, useEffect } from "react";
 
 const books = [
   {
@@ -19,6 +21,24 @@ const BANNER =
   "https://images.unsplash.com/photo-1496317556649-f930d733eea0?auto=format&fit=crop&w=1600&q=80";
 
 function Books() {
+  const [activePdf, setActivePdf] = useState(null);
+
+  useEffect(() => {
+    function onKey(e) {
+      if (e.key === "Escape") setActivePdf(null);
+    }
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  function openPdf(book) {
+    setActivePdf(book);
+  }
+
+  function closePdf() {
+    setActivePdf(null);
+  }
   return (
     <>
       <PageBanner
@@ -40,19 +60,61 @@ function Books() {
               <p className="mt-3 text-sm leading-relaxed text-mint/80">
                 {book.description}
               </p>
-              <div className="mt-6">
-                <a
-                  href={book.downloadUrl}
-                  download
-                  className="inline-flex rounded-full bg-amber px-6 py-3 text-sm font-semibold text-ink transition hover:bg-amber/90"
-                >
-                  Download PDF
-                </a>
+              <div className="mt-6 space-y-4">
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => {
+                      // open a static viewer page in a new tab with query params
+                      const url = `/pdf-viewer.html?src=${encodeURIComponent(
+                        book.downloadUrl
+                      )}&title=${encodeURIComponent(book.title)}`;
+                      window.open(url, "_blank");
+                    }}
+                    className="inline-flex items-center gap-2 rounded-full bg-amber px-5 py-2 text-sm font-semibold text-ink transition hover:bg-amber/90"
+                  >
+                    View PDF
+                  </button>
+
+                  <a
+                    href={book.downloadUrl}
+                    download
+                    className="inline-flex rounded-full bg-cream/90 px-4 py-2 text-sm font-medium text-ink transition hover:opacity-90"
+                  >
+                    Download PDF
+                  </a>
+                </div>
               </div>
             </article>
           ))}
         </div>
       </section>
+
+      {activePdf && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-6"
+          onClick={closePdf}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-end mb-3">
+              <button
+                onClick={closePdf}
+                className="rounded-full bg-white/10 px-3 py-2 text-sm text-cream"
+                aria-label="Close PDF viewer"
+              >
+                Close
+              </button>
+            </div>
+
+            <PdfViewer
+              src={activePdf.downloadUrl}
+              title={activePdf.title}
+              showDownload={true}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
