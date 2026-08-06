@@ -43,7 +43,7 @@ function ContactForm() {
 
   return (
     <>
-      <section className="section-pad">
+      <section className="py-12">
         <div className="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div data-aos="fade-right">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-moss">
@@ -114,7 +114,7 @@ function ContactForm() {
                   name="email"
                   type="email"
                   className="w-full rounded-md border border-white/15 bg-white/10 px-4 py-2 text-cream outline-none placeholder:text-mint/50 focus:border-amber"
-                  placeholder="you@email.com"
+                  placeholder="jahanzaibmahar18@gmail.com"
                 />
               </label>
             </div>
@@ -125,7 +125,7 @@ function ContactForm() {
                 name="phone"
                 type="tel"
                 className="w-full rounded-md border border-white/15 bg-white/10 px-4 py-2 text-cream outline-none placeholder:text-mint/50 focus:border-amber"
-                placeholder="+92 300 0000000"
+                placeholder="+92 3076341312"
               />
             </label>
 
@@ -171,7 +171,7 @@ function ContactForm() {
         </div>
       </section>
 
-      <section className="section-pad bg-mint/40 pt-0">
+      <section className="py-12 bg-mint/40 pt-0">
         <div className="container-page">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-moss">
             How We Can Help
