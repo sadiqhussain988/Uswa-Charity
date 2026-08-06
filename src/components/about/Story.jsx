@@ -10,7 +10,7 @@ const images = {
 
 function Story() {
   return (
-    <section className="section-pad">
+    <section className="py-12">
       <div className="container-page grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <div>
           <SectionHeading

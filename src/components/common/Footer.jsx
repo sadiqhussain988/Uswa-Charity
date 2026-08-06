@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { navLinks, site } from "../../data/site";
 import { services } from "../../data/services";
+import uswa from "../../assets/uswa.png";
 import Button from "./Button";
 
 function Footer() {
@@ -10,8 +11,12 @@ function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
             <Link to="/" className="group inline-flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber font-display text-lg font-bold text-ink transition-transform duration-200 group-hover:scale-105">
-                U
+              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 transition-transform duration-200 group-hover:scale-105">
+                <img
+                  src={uswa}
+                  alt="Uswa Charity logo"
+                  className="h-16 w-16 rounded-full object-contain"
+                />
               </span>
               <span className="leading-tight">
                 <span className="block font-display text-xl tracking-wide text-cream">

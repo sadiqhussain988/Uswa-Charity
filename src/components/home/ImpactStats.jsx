@@ -2,7 +2,7 @@ import { impactStats } from "../../data/site";
 
 function ImpactStats() {
   return (
-    <section className="bg-forest py-8 text-cream sm:py-10">
+    <section className="bg-forest py-12 text-cream sm:py-10">
       <div className="container-page">
         <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {impactStats.map((stat, index) => (

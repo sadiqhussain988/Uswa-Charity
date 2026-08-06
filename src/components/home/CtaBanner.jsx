@@ -2,7 +2,7 @@ import Button from "../common/Button";
 
 function CtaBanner() {
   return (
-    <section className="pb-6 pt-0 sm:mb-6">
+    <section className="pb-6 pt-0 sm:mb-6 py-10">
       <div className="container-page">
         <div
           className="rounded-2xl bg-forest px-5 py-8 text-cream sm:rounded-3xl sm:px-12 sm:py-12"

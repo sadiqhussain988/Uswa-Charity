@@ -21,8 +21,8 @@ function ServiceCard({ service, index }) {
           className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-110"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/35 to-transparent opacity-90 transition duration-500 group-hover:opacity-95" />
-        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-forest/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-forest via-forest/35 to-transparent opacity-90 transition duration-500 group-hover:opacity-95" />
+        <div className="absolute inset-x-0 top-0 h-20 bg-linear-to-b from-forest/40 to-transparent" />
 
         <div className="absolute left-4 top-4 flex items-center gap-2">
           <span className="rounded-full bg-amber px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-ink shadow-sm sm:text-[11px]">

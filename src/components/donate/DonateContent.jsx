@@ -53,7 +53,7 @@ function DonateContent() {
 
   return (
     <>
-      <section className="section-pad">
+      <section className="py-12">
         <div className="container-page grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div>
             <SectionHeading

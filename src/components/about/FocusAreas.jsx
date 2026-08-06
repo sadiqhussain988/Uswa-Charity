@@ -5,34 +5,45 @@ import Button from "../common/Button";
 
 function FocusAreas() {
   return (
-    <section className="section-pad bg-mint/40">
+    <section className="bg-mint/40 py-16">
       <div className="container-page">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        {/* Header */}
+        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <SectionHeading
             eyebrow="Broader Focus"
             title="Beyond core services, we strengthen community systems."
             text="USWA also works on complementary development priorities that support long-term wellbeing."
           />
-          <Button to="/services" variant="outline" className="shrink-0">
+
+          <Button
+            to="/services"
+            variant="outline"
+            className="shrink-0 rounded-xl px-6 py-3 lg:mt-2"
+          >
             View All Services
           </Button>
         </div>
 
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Cards */}
+        <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {extraFocus.map((item, index) => (
             <li key={item}>
               <Link
                 to="/services"
                 data-aos="fade-up"
                 data-aos-delay={index * 80}
-                className="group flex h-full items-start gap-4 rounded-3xl bg-cream px-5 py-6 ring-1 ring-line transition duration-300 hover:-translate-y-1 hover:ring-forest/25"
+                className="group flex h-full items-start gap-5 rounded-3xl bg-cream px-6 py-7 ring-1 ring-line transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-forest/20"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-mint text-sm font-bold text-forest transition group-hover:bg-forest group-hover:text-cream">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-mint font-bold text-forest transition-all duration-300 group-hover:bg-forest group-hover:text-cream">
                   {String(index + 1).padStart(2, "0")}
                 </span>
+
                 <div>
-                  <h3 className="text-hero-card text-forest">{item}</h3>
-                  <p className="mt-2 text-sm text-ink/60 transition group-hover:text-forest">
+                  <h3 className="text-2xl font-bold leading-tight text-forest">
+                    {item}
+                  </h3>
+
+                  <p className="mt-3 text-sm text-ink/60 transition group-hover:text-forest">
                     Explore related programs →
                   </p>
                 </div>

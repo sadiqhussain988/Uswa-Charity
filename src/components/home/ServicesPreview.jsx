@@ -5,7 +5,7 @@ import ServiceCard from "../services/ServiceCard";
 
 function ServicesPreview() {
   return (
-    <section className="section-pad bg-mint/40">
+    <section className="py-12 bg-mint/40">
       <div className="container-page">
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
           <SectionHeading

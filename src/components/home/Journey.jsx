@@ -3,7 +3,7 @@ import SectionHeading from "../common/SectionHeading";
 
 function Journey() {
   return (
-    <section className="section-pad relative overflow-hidden bg-mint/30">
+    <section className="py-10 relative overflow-hidden bg-mint/30">
       <div className="container-page relative z-10">
         <div className="mx-auto max-w-3xl text-center">
           <SectionHeading

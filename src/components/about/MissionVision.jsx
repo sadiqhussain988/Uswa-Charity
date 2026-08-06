@@ -2,7 +2,7 @@ import { missionVision } from "../../data/site";
 
 function MissionVision() {
   return (
-    <section className="section-pad bg-mint/40 pt-0">
+    <section className="py-12 bg-mint/40 pt-0">
       <div className="container-page grid gap-5 lg:grid-cols-2">
         <div className="rounded-3xl bg-forest p-8 text-cream sm:p-10" data-aos="fade-right">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber">

@@ -1,6 +1,6 @@
 function PageBanner({ title, text, image }) {
   return (
-    <section className="relative min-h-[36vh] overflow-hidden bg-forest sm:min-h-[42vh]">
+    <section  className="relative min-h-[48vh] overflow-hidden bg-forest sm:min-h-[42vh]">
       <img
         src={image}
         alt=""

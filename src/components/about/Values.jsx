@@ -3,7 +3,7 @@ import SectionHeading from "../common/SectionHeading";
 
 function Values() {
   return (
-    <section className="section-pad">
+    <section className="py-12">
       <div className="container-page">
         <SectionHeading
           eyebrow="Our Values"

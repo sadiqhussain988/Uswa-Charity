@@ -12,7 +12,7 @@ const images = {
 
 function MissionStrip() {
   return (
-    <section className="section-pad">
+    <section className="py-12 ">
       <div className="container-page grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
         <div>
           <SectionHeading
