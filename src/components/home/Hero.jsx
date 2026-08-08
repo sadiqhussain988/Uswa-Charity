@@ -12,8 +12,9 @@ const slides = [
     id: 1,
     image: "https://i.pinimg.com/1200x/65/1c/c8/651cc8657bdd26652e25d131f894f436.jpg",
     brand: site.name,
+    subtitle: site.fullName,
     title: "Building healthier, educated, and empowered communities.",
-    text: site.tagline,
+    text: site.slogan,
     primary: { label: "Donate Now", to: "/donate" },
     secondary: { label: "Explore Services", to: "/services" },
   },
@@ -21,6 +22,7 @@ const slides = [
     id: 2,
     image: "https://i.pinimg.com/1200x/3c/fa/09/3cfa091dac27bacace6dead1f6bb70fc.jpg",
     brand: site.name,
+    subtitle: site.fullName,
     title: "Health, education, and awareness that reach every household.",
     text: "From medical camps to learning support — practical care for families who need it most.",
     primary: { label: "Our Services", to: "/services" },
@@ -30,6 +32,7 @@ const slides = [
     id: 3,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT3E7NgaMo6TBgnepyNorjGvfXpGcVRujKQYSDC2RtVTXV74Ds8txzbnE&s=10",
     brand: site.name,
+    subtitle: site.fullName,
     title: "Your support fuels hope, relief, and lasting change.",
     text: "Join donation drives, blood collection campaigns, and community programs that save lives.",
     primary: { label: "Support USWA", to: "/donate" },
@@ -88,6 +91,16 @@ function Hero() {
                   >
                     {slide.brand}
                   </span>
+
+                  <p
+                    className={`mt-2 text-[11px] uppercase tracking-[0.18em] text-mint/85 sm:text-xs transition-all duration-700 delay-150 ${
+                      isActive
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-4"
+                    }`}
+                  >
+                    {slide.subtitle}
+                  </p>
 
                   {/* Main Title */}
                   <h1

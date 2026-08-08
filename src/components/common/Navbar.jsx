@@ -106,8 +106,8 @@ function Navbar() {
           >
             <img
               src={uswa}
-              alt="Uswa Charity logo"
-              className="h-9 w-9 object-contain p-0.5"
+              alt="USWA — United Social Watch And Advocacy"
+              className="h-12 w-12 object-contain p-0.5"
             />
           </span>
 
@@ -116,11 +116,8 @@ function Navbar() {
               {site.name}
             </span>
 
-            <span
-              className={`hidden text-[11px] uppercase tracking-[0.18em] text-mint/80 transition-all duration-300 sm:block ${scrolled ? "h-0 overflow-hidden opacity-0" : "opacity-100"
-                }`}
-            >
-              Community Welfare
+            <span className="hidden text-[10px] uppercase tracking-[0.14em] text-mint/80 sm:block">
+              {site.slogan}
             </span>
           </span>
         </Link>

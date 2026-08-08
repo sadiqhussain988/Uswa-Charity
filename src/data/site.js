@@ -1,9 +1,10 @@
 export const site = {
   name: "USWA",
-  fullName: "USWA Organization",
+  fullName: "United Social Watch And Advocacy",
+  slogan: "Bila Imtiaz Sub Ki Khidmat",
   tagline: "Serving communities through health, education, and social welfare.",
   description:
-    "USWA is a community-focused organization working across health, education, surveys, workshops, consultancy, awareness sessions, donations, and blood collection to uplift marginalized communities.",
+    "USWA (United Social Watch And Advocacy) is a community-focused organization working across health, education, surveys, workshops, consultancy, awareness sessions, donations, and blood collection to uplift marginalized communities.",
   email: "info@uswa.org",
   phone: "+92 300 0000000",
   address: "Pakistan",

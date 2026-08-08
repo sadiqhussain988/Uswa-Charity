@@ -25,11 +25,11 @@ function Footer() {
               to="/"
               className="inline-flex items-center gap-4 group"
             >
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 transition group-hover:scale-105">
+              <div className="flex  items-center justify-center rounded-full bg-white/10 transition group-hover:scale-105">
                 <img
                   src={uswa}
                   alt="USWA"
-                  className="h-16 w-16 object-contain rounded-full"
+                  className="h-16 w-16 object-fit  border-2 border-white rounded-full"
                 />
               </div>
 
@@ -38,8 +38,12 @@ function Footer() {
                   {site.name}
                 </h2>
 
-                <p className="text-xs uppercase tracking-[4px] text-mint/70">
-                  Together We Change Lives
+                <p className="mt-1 text-xs text-mint/80">
+                  {site.fullName}
+                </p>
+
+                <p className="mt-2 text-xs uppercase tracking-[3px] text-mint/70">
+                  {site.slogan}
                 </p>
               </div>
             </Link>

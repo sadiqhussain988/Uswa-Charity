@@ -1,3 +1,5 @@
+import { site } from "../../data/site";
+
 function PageBanner({ title, text, image }) {
   return (
     <section  className="relative min-h-[48vh] overflow-hidden bg-forest sm:min-h-[42vh]">
@@ -13,7 +15,7 @@ function PageBanner({ title, text, image }) {
           data-aos="fade-up"
           className="text-[11px] font-semibold uppercase tracking-[0.22em] text-amber sm:text-xs sm:tracking-[0.24em]"
         >
-          USWA
+          {site.name}
         </p>
         <h1
           data-aos="fade-up"
