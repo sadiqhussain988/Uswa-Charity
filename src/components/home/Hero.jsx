@@ -28,7 +28,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "https://i.pinimg.com/1200x/4f/73/4f/4f734ffab94a3e30383382460adc951a.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT3E7NgaMo6TBgnepyNorjGvfXpGcVRujKQYSDC2RtVTXV74Ds8txzbnE&s=10",
     brand: site.name,
     title: "Your support fuels hope, relief, and lasting change.",
     text: "Join donation drives, blood collection campaigns, and community programs that save lives.",
@@ -44,12 +44,12 @@ function Hero() {
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
         fadeEffect={{ crossFade: true }}
-        speed={1000}
+        speed={2000}
         loop
         autoplay={{
-          delay: 6000,
+          delay: 2000,
           disableOnInteraction: false,
-          pauseOnMouseEnter: true,
+          pauseOnMouseEnter: false,
         }}
         pagination={{
           clickable: true,

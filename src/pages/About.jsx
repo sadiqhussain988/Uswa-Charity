@@ -18,7 +18,6 @@ function About() {
         text="A community welfare organization dedicated to health, education, and social development since 2013."
         image={BANNER}
       />
-
       <section className="border-b border-line bg-cream">
         <div className="container-page grid grid-cols-2 gap-4 py-6 sm:gap-6 sm:py-8 lg:grid-cols-4">
           {impactStats.map((stat) => (

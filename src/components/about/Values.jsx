@@ -17,13 +17,33 @@ function Values() {
               key={value.title}
               data-aos="fade-up"
               data-aos-delay={index * 80}
-              className="rounded-3xl bg-cream p-6 ring-1 ring-line transition duration-300 hover:-translate-y-1 hover:ring-forest/20 sm:p-7"
+              className="
+                rounded-3xl
+                bg-cream
+                p-6
+                shadow-lg
+                ring-1
+                ring-line
+                transition-all
+                duration-500
+                hover:-translate-y-1
+                hover:bg-white
+                hover:shadow-2xl
+                hover:ring-forest/20
+                sm:p-7
+              "
             >
               <p className="text-hero-brand normal-case tracking-tight text-moss/35">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="text-hero-card mt-2 text-forest">{value.title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-ink/70">{value.text}</p>
+
+              <h3 className="mt-2 text-hero-card text-forest">
+                {value.title}
+              </h3>
+
+              <p className="mt-3 text-base leading-relaxed text-ink/70">
+                {value.text}
+              </p>
             </div>
           ))}
         </div>

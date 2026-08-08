@@ -32,7 +32,7 @@ function Journey() {
                 className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-cream p-5 ring-1 ring-line transition-all duration-500 hover:-translate-y-1 hover:ring-forest/20 sm:rounded-3xl sm:p-8"
               >
                 {/* Top Accent Gradient Border */}
-                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-emerald-600 via-teal-500 to-amber-500 opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute top-0 inset-x-0 h-1.5 bg-linear-to-r from-emerald-600 via-teal-500 to-amber-500 opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
 
                 {/* Decorative Background Step Index Watermark */}
                 <span

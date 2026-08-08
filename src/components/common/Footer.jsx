@@ -1,4 +1,13 @@
 import { Link } from "react-router-dom";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+
 import { navLinks, site } from "../../data/site";
 import { services } from "../../data/services";
 import uswa from "../../assets/uswa.png";
@@ -7,64 +16,99 @@ import Button from "./Button";
 function Footer() {
   return (
     <footer className="bg-forest text-cream">
-      <div className="container-page py-14 sm:py-16" data-aos="fade-up">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+      {/* Top */}
+      <div className="container-page py-16">
+        <div className="grid gap-12 lg:grid-cols-12">
+          {/* Logo */}
           <div className="lg:col-span-4">
-            <Link to="/" className="group inline-flex items-center gap-3">
-              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 transition-transform duration-200 group-hover:scale-105">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-4 group"
+            >
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 transition group-hover:scale-105">
                 <img
                   src={uswa}
-                  alt="Uswa Charity logo"
-                  className="h-16 w-16 rounded-full object-contain"
+                  alt="USWA"
+                  className="h-16 w-16 object-contain rounded-full"
                 />
-              </span>
-              <span className="leading-tight">
-                <span className="block font-display text-xl tracking-wide text-cream">
+              </div>
+
+              <div>
+                <h2 className="font-display text-2xl font-semibold">
                   {site.name}
-                </span>
-                <span className="block text-[11px] uppercase tracking-[0.18em] text-mint/80">
-                  Community Welfare
-                </span>
-              </span>
+                </h2>
+
+                <p className="text-xs uppercase tracking-[4px] text-mint/70">
+                  Together We Change Lives
+                </p>
+              </div>
             </Link>
 
-            <p className="text-hero-body mt-5 max-w-sm text-mint/80">
+            <p className="mt-6 max-w-sm leading-7 text-mint/80">
               {site.tagline}
             </p>
 
-            <Button to="/donate" className="mt-6">
-              Support Us
+            <Button to="/donate" className="mt-7">
+              Donate Now
             </Button>
+
+            {/* Social */}
+            <div className="mt-8 flex gap-3">
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-amber hover:text-forest transition"
+              >
+                <FaFacebookF />
+              </a>
+
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-amber hover:text-forest transition"
+              >
+                <FaInstagram />
+              </a>
+
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-amber hover:text-forest transition"
+              >
+                <FaLinkedinIn />
+              </a>
+            </div>
           </div>
 
+          {/* Quick Links */}
           <div className="lg:col-span-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber">
-              Explore
-            </p>
-            <ul className="mt-5 space-y-3">
-              {navLinks.map((link) => (
-                <li key={link.path}>
+            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[3px] text-amber">
+              Quick Links
+            </h3>
+
+            <ul className="space-y-4">
+              {navLinks.map((item) => (
+                <li key={item.path}>
                   <Link
-                    to={link.path}
-                    className="text-sm text-cream/85 transition-colors duration-200 hover:text-amber"
+                    to={item.path}
+                    className="text-sm text-cream/80 hover:text-amber transition"
                   >
-                    {link.label}
+                    {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Programs */}
           <div className="lg:col-span-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber">
-              Key Programs
-            </p>
-            <ul className="mt-5 space-y-3">
-              {services.slice(0, 5).map((service) => (
+            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[3px] text-amber">
+              Our Programs
+            </h3>
+
+            <ul className="space-y-4">
+              {services.slice(0, 6).map((service) => (
                 <li key={service.id}>
                   <Link
                     to="/services"
-                    className="text-sm text-cream/85 transition-colors duration-200 hover:text-amber"
+                    className="text-sm text-cream/80 hover:text-amber transition"
                   >
                     {service.title}
                   </Link>
@@ -73,55 +117,73 @@ function Footer() {
             </ul>
           </div>
 
+          {/* Contact */}
           <div className="lg:col-span-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber">
-              Get in Touch
-            </p>
-            <ul className="mt-5 space-y-4 text-sm text-cream/85">
-              <li>
-                <p className="text-[11px] uppercase tracking-[0.16em] text-mint/70">
-                  Address
+            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[3px] text-amber">
+              Contact Us
+            </h3>
+
+            <div className="space-y-6 text-sm">
+              <div className="flex items-start gap-3">
+                <FaMapMarkerAlt className="mt-1 text-amber" />
+                <p className="leading-6 text-cream/80">
+                  {site.address}
                 </p>
-                <p className="mt-1 leading-relaxed">{site.address}</p>
-              </li>
-              <li>
-                <p className="text-[11px] uppercase tracking-[0.16em] text-mint/70">
-                  Email
-                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <FaEnvelope className="text-amber" />
                 <a
                   href={`mailto:${site.email}`}
-                  className="mt-1 inline-block transition-colors duration-200 hover:text-amber"
+                  className="hover:text-amber transition"
                 >
                   {site.email}
                 </a>
-              </li>
-              <li>
-                <p className="text-[11px] uppercase tracking-[0.16em] text-mint/70">
-                  Phone
-                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <FaPhoneAlt className="text-amber" />
                 <a
                   href={`tel:${site.phone.replace(/\s/g, "")}`}
-                  className="mt-1 inline-block transition-colors duration-200 hover:text-amber"
+                  className="hover:text-amber transition"
                 >
                   {site.phone}
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Bottom */}
       <div className="border-t border-white/10">
-        <div className="container-page flex flex-col items-center justify-between gap-3 py-5 text-xs text-mint/70 sm:flex-row">
+        <div className="container-page flex flex-col gap-4 py-5 text-center text-sm text-mint/70 md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.fullName}. All rights reserved.
+            © {new Date().getFullYear()} {site.fullName}. All Rights Reserved.
           </p>
-          <Link
-            to="/contact"
-            className="transition-colors duration-200 hover:text-amber"
-          >
-            Contact USWA
-          </Link>
+
+          <div className="flex justify-center gap-6">
+            <Link
+              to="/privacy"
+              className="hover:text-amber transition"
+            >
+              Privacy Policy
+            </Link>
+
+            <Link
+              to="/terms"
+              className="hover:text-amber transition"
+            >
+              Terms & Conditions
+            </Link>
+
+            <Link
+              to="/contact"
+              className="hover:text-amber transition"
+            >
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

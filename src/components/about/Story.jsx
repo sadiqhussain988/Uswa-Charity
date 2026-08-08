@@ -12,16 +12,23 @@ function Story() {
   return (
     <section className="py-12">
       <div className="container-page grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        {/* Left Content */}
         <div>
           <SectionHeading
             eyebrow="Our Story"
             title={`${site.name} works where support creates lasting change.`}
             text={site.description}
           />
-          <p className="text-hero-body max-w-xl text-ink/70" data-aos="fade-up" data-aos-delay="80">
-            Across our organizational profiles (2013–2019 and 2019–2021), USWA has built
-            practical community programs — from health and education to surveys, workshops,
-            consultancy, awareness sessions, donations, and blood collection.
+
+          <p
+            className="max-w-xl text-hero-body text-ink/70"
+            data-aos="fade-up"
+            data-aos-delay="80"
+          >
+            Across our organizational profiles (2013–2019 and 2019–2021), USWA
+            has built practical community programs — from health and education
+            to surveys, workshops, consultancy, awareness sessions, donations,
+            and blood collection.
           </p>
 
           <div
@@ -32,37 +39,66 @@ function Story() {
             <Button to="/services" variant="dark">
               Explore Our Services
             </Button>
+
             <Button to="/contact" variant="outline">
               Connect With Us
             </Button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4" data-aos="fade-left">
-          <div className="overflow-hidden rounded-3xl">
+        {/* Right Images */}
+        <div
+          className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4"
+          data-aos="fade-left"
+        >
+          {/* Main Image */}
+          <div className="group relative overflow-hidden rounded-3xl shadow-xl">
             <img
               src={images.main}
               alt="USWA community support in action"
               className="h-56 w-full object-cover sm:h-full sm:min-h-[360px]"
             />
+
+            {/* Glass Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none"></div>
+
+            {/* Shine Effect */}
+            <div className="absolute -left-[120%] top-0 h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-1000 group-hover:left-[150%] pointer-events-none"></div>
           </div>
+
+          {/* Right Side */}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-1 sm:gap-4">
-            <div className="overflow-hidden rounded-3xl">
+            {/* Side Image */}
+            <div className="group relative overflow-hidden rounded-3xl shadow-xl">
               <img
                 src={images.side}
                 alt="Children supported through USWA programs"
                 className="h-36 w-full object-cover sm:h-44"
               />
+
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none"></div>
+
+              <div className="absolute -left-[120%] top-0 h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-1000 group-hover:left-[150%] pointer-events-none"></div>
             </div>
-            <div className="overflow-hidden rounded-3xl">
+
+            {/* Bottom Image */}
+            <div className="group relative overflow-hidden rounded-3xl shadow-xl">
               <img
                 src={images.bottom}
                 alt="Joyful community members"
                 className="h-36 w-full object-cover sm:h-44"
               />
+
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none"></div>
+
+              <div className="absolute -left-[120%] top-0 h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-1000 group-hover:left-[150%] pointer-events-none"></div>
             </div>
-            <div className="col-span-2 rounded-3xl bg-forest px-5 py-6 text-cream sm:col-span-1">
-              <p className="text-hero-brand normal-case tracking-tight text-amber">2013</p>
+
+            {/* Year Card */}
+            <div className="col-span-2 rounded-3xl bg-forest px-5 py-6 text-cream shadow-xl sm:col-span-1">
+              <p className="text-hero-brand normal-case tracking-tight text-amber">
+                2013
+              </p>
               <p className="mt-1 text-sm uppercase tracking-[0.16em] text-mint/80">
                 Serving Communities
               </p>
